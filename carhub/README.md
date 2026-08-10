@@ -70,3 +70,15 @@ Log in to `/admin/`, go to **Cars**, and add a new entry — brand, model, year,
 - Uses SQLite by default (`db.sqlite3`) — zero config needed to get started. Swap `DATABASES` in `carhub/settings.py` for Postgres/MySQL in production.
 - `DEBUG = True` and a placeholder `SECRET_KEY` are set for local development only — change both before deploying.
 - Uploaded car images are stored under `media/cars/` and served automatically while `DEBUG = True`.
+
+
+
+For Starting this
+python -m venv venv
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py seed_cars
+python manage.py createsuperuser
+python manage.py runserver
+http://127.0.0.1:8000/
+http://127.0.0.1:8000/admin/
