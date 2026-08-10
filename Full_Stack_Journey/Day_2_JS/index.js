@@ -11,10 +11,11 @@
 // console.log(isLearning)
 
 
-let name = "Rahul";
-name = "Vishal";
+// let name = "Rahul";
+// name = "Vishal";
 
-console.log(name)
+// console.log(name)
 
-const age = 25;
-console.log(age)
+// const age = 25;
+// console.log(age)
+
