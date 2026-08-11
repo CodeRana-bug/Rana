@@ -10,6 +10,9 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+          content="Rahul Rana - Full Stack Developer Portfolio">
+
     <title>Rahul Rana | Full Stack Developer</title>
 
     <link rel="stylesheet"
@@ -21,28 +24,49 @@
 <body>
 
 
+<!-- ================= NAVBAR ================= -->
+
 <header class="navbar">
 
-    <div class="container">
+    <div class="container nav-container">
 
-        <div class="logo">
+        <a href="#home" class="logo">
             Rahul<span>.</span>
-        </div>
+        </a>
 
 
-        <nav>
+        <nav id="navMenu">
 
-            <a href="#">Home</a>
+            <a href="#home">Home</a>
 
-            <a href="#">About</a>
+            <a href="#about">About</a>
 
-            <a href="#">Skills</a>
+            <a href="#skills">Skills</a>
 
-            <a href="#">Projects</a>
+            <a href="#projects">Projects</a>
 
-            <a href="#">Contact</a>
+            <a href="#journey">Journey</a>
+
+            <a href="#contact">Contact</a>
 
         </nav>
+
+
+        <div class="nav-actions">
+
+            <button id="themeBtn"
+                    class="icon-btn"
+                    aria-label="Toggle theme">
+                🌙
+            </button>
+
+            <button id="menuBtn"
+                    class="menu-btn"
+                    aria-label="Open menu">
+                ☰
+            </button>
+
+        </div>
 
     </div>
 
@@ -50,46 +74,259 @@
 
 
 
-<section class="hero">
+<!-- ================= HOME ================= -->
 
-    <div class="container hero-content">
+<section id="home" class="hero">
 
-        <h1>
-            Rahul Rana
-        </h1>
+    <div class="container hero-container">
 
 
-        <h2>
-            Full Stack
-            <span>Developer</span>
-        </h2>
+        <div class="hero-content">
+
+            <p class="hero-intro">
+                👋 Hello, I'm
+            </p>
 
 
-        <p>
-            I build modern, responsive and
-            user-friendly web applications
-            using clean and practical code.
-        </p>
+            <h1>
+                Rahul Rana
+            </h1>
 
 
-        <div class="buttons">
-
-            <a href="#"
-               class="btn primary">
-                View My Work
-            </a>
+            <h2>
+                Full Stack
+                <span>Developer</span>
+            </h2>
 
 
-            <a href="#"
-               class="btn secondary">
-                Contact Me
-            </a>
+            <p class="hero-description">
+
+                I build modern, responsive and
+                user-friendly web applications using
+                HTML, CSS, JavaScript, Python and Django.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#projects"
+                   class="btn primary">
+                    View My Work
+                </a>
+
+
+                <a href="#contact"
+                   class="btn secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+
+            <div class="social-links">
+
+                <a href="#"
+                   target="_blank">
+                    GitHub
+                </a>
+
+                <a href="#"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="profile-card">
+
+                <div class="profile-circle">
+                    RR
+                </div>
+
+                <h3>
+                    Full Stack Developer
+                </h3>
+
+                <p>
+                    Building ideas into reality.
+                </p>
+
+            </div>
 
         </div>
 
     </div>
 
 </section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about"
+         class="section about-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <p>
+                ABOUT ME
+            </p>
+
+            <h2>
+                Get to know <span>me</span>
+            </h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-text">
+
+                <h3>
+                    I'm a Developer who loves building things.
+                </h3>
+
+
+                <p>
+
+                    I'm Rahul Rana, an aspiring Full Stack
+                    Developer passionate about creating
+                    modern and useful web applications.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy learning new technologies,
+                    solving programming problems and
+                    turning ideas into real-world applications.
+
+                </p>
+
+
+                <p>
+
+                    My current focus is on frontend development,
+                    Python, Django, databases and full-stack
+                    web development.
+
+                </p>
+
+
+                <p>
+
+                    I believe the best way to learn programming
+                    is to build real projects, make mistakes,
+                    understand them and keep improving.
+
+                </p>
+
+
+                <a href="#contact"
+                   class="btn primary">
+                    Let's Talk
+                </a>
+
+            </div>
+
+
+
+            <div class="about-cards">
+
+
+                <div class="info-card">
+
+                    <span class="info-icon">
+                        💻
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <p>
+                            Creating responsive and
+                            modern websites.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <span class="info-icon">
+                        🐍
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Python & Django
+                        </h3>
+
+                        <p>
+                            Building powerful backend
+                            applications.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <span class="info-icon">
+                        🚀
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Continuous Learning
+                        </h3>
+
+                        <p>
+                            Always learning and improving
+                            my development skills.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="{% static 'portfolio/js/script.js' %}"></script>
 
 
 </body>
