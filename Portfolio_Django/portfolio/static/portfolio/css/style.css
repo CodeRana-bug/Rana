@@ -873,7 +873,7 @@ nav a:hover {
 /* ================= JOURNEY ================= */
 
 .journey-section {
-    background: #f8fafc;
+    background: #ffffff;
 }
 
 .dark .journey-section {
@@ -1096,7 +1096,7 @@ nav a:hover {
 /* ================= CONTACT ================= */
 
 .contact-section {
-    background: #ffffff;
+    background: #F8FAFC;
 }
 
 .dark .contact-section {
@@ -1346,6 +1346,255 @@ nav a:hover {
     .hero-buttons .btn {
         width: 220px;
         text-align: center;
+    }
+
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience-section {
+    background: #f8fafc;
+}
+
+.dark .experience-section {
+    background: #0f172a;
+}
+
+.experience-card {
+    max-width: 950px;
+    margin: 0 auto;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+}
+
+.dark .experience-card {
+    background: #0f172a;
+    border-color: #1e293b;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.10);
+}
+
+
+/* Experience Header */
+
+.experience-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 25px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .experience-header {
+    border-color: #1e293b;
+}
+
+.experience-date {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #6366f1;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.experience-header h3 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.experience-header h4 {
+    color: #6366f1;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+/* Experience Icon */
+
+.experience-icon {
+    width: 65px;
+
+    height: 65px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background: #eef2ff;
+
+    font-size: 30px;
+}
+
+.dark .experience-icon {
+    background: #1e1b4b;
+}
+
+
+/* Experience Content */
+
+.experience-content {
+    padding-top: 25px;
+}
+
+.experience-content > p {
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 22px;
+}
+
+.dark .experience-content > p {
+    color: #94a3b8;
+}
+
+
+/* Experience List */
+
+.experience-list {
+    margin: 0 0 25px;
+
+    padding-left: 20px;
+}
+
+.experience-list li {
+    color: #475569;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 10px;
+
+    padding-left: 5px;
+}
+
+.dark .experience-list li {
+    color: #cbd5e1;
+}
+
+.experience-list li::marker {
+    color: #6366f1;
+}
+
+
+/* Experience Technologies */
+
+.experience-tech {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.experience-tech span {
+    padding: 7px 11px;
+
+    border-radius: 6px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.dark .experience-tech span {
+    background: #1e1b4b;
+
+    color: #a5b4fc;
+}
+
+
+/* Experience Responsive */
+
+@media (max-width: 600px) {
+
+    .experience-card {
+        padding: 25px 20px;
+    }
+
+    .experience-header {
+        align-items: center;
+    }
+
+    .experience-header h3 {
+        font-size: 23px;
+    }
+
+    .experience-header h4 {
+        font-size: 16px;
+    }
+
+    .experience-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 25px;
+    }
+
+    .experience-content > p {
+        font-size: 15px;
+    }
+
+    .experience-list li {
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .experience-header {
+        flex-direction: column;
+    }
+
+    .experience-icon {
+        width: 50px;
+        height: 50px;
     }
 
 }
