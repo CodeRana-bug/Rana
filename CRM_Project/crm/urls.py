@@ -35,5 +35,10 @@ urlpatterns = [
         views.customer_delete,
         name="customer_delete"
     ),
+    path(
+        "leads/",
+        views.lead_list,
+        name="lead_list"
+    ),
 
 ]

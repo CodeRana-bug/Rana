@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Customer
+from .models import Customer, Lead
 
 
 def dashboard(request):
@@ -122,5 +122,20 @@ def customer_delete(request, id):
     return render(
         request,
         "crm/customer_delete.html",
+        context
+    )
+
+
+def lead_list(request):
+
+    leads = Lead.objects.order_by("-created_at")
+
+    context = {
+        "leads": leads,
+    }
+
+    return render(
+        request,
+        "crm/lead_list.html",
         context
     )

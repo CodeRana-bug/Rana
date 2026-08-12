@@ -326,17 +326,13 @@
 
         <nav class="menu">
 
-            <a href="/" class="active">
+            <a href="{% url 'dashboard' %}" class="active">
                 📊 Dashboard
             </a>
 
-            <a href="#">
-                👥 Customers
-            </a>
+            <a href="{% url 'customer_list' %}">👥 Customers</a>
 
-            <a href="#">
-                🎯 Leads
-            </a>
+            <a href="#">🎯 Leads</a>
 
             <a href="#">
                 ✅ Tasks
