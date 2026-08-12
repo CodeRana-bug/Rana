@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Customer, Lead
+from .forms import LeadForm
 
 
 
@@ -127,6 +128,25 @@ def customer_delete(request, id):
     )
 
 
+def lead_create(request):
+
+    if request.method == "POST":
+        form = LeadForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect("lead_list")
+
+    else:
+        form = LeadForm()
+
+    return render(
+        request,
+        "crm/lead_form.html",
+        {"form": form}
+    )
+
 def lead_list(request):
 
     leads = Lead.objects.order_by("-created_at")
@@ -145,19 +165,69 @@ def lead_create(request):
 
     if request.method == "POST":
 
-        Lead.objects.create(
-            name=request.POST.get("name"),
-            email=request.POST.get("email"),
-            phone=request.POST.get("phone"),
-            company=request.POST.get("company"),
-            source=request.POST.get("source"),
-            status=request.POST.get("status"),
-            notes=request.POST.get("notes"),
-        )
+        form = LeadForm(request.POST)
 
+        if form.is_valid():
+            form.save()
+
+            return redirect("lead_list")
+
+    else:
+
+        form = LeadForm()
+
+    return render(
+        request,
+        "crm/lead_form.html",
+        {
+            "form": form
+        }
+    )
+
+def lead_detail(request, id):
+
+    lead = Lead.objects.get(id=id)
+
+    return render(
+        request,
+        "crm/lead_detail.html",
+        {"lead": lead}
+    )
+
+def lead_edit(request, id):
+
+    lead = Lead.objects.get(id=id)
+
+    if request.method == "POST":
+
+        lead.name = request.POST.get("name")
+        lead.email = request.POST.get("email")
+        lead.phone = request.POST.get("phone")
+        lead.company = request.POST.get("company")
+        lead.source = request.POST.get("source")
+        lead.status = request.POST.get("status")
+        lead.notes = request.POST.get("notes")
+
+        lead.save()
+
+        return redirect("lead_detail", id=lead.id)
+
+    return render(
+        request,
+        "crm/lead_edit.html",
+        {"lead": lead}
+    )
+
+def lead_delete(request, id):
+
+    lead = Lead.objects.get(id=id)
+
+    if request.method == "POST":
+        lead.delete()
         return redirect("lead_list")
 
     return render(
         request,
-        "crm/lead_create.html"
+        "crm/lead_delete.html",
+        {"lead": lead}
     )
