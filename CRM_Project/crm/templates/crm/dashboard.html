@@ -174,6 +174,138 @@
 
         }
 
+        /* ================= RECENT CUSTOMERS ================= */
+
+.recent-section {
+    margin-top: 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.section-header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.view-all {
+    color: #6366f1;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.recent-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.customer-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.customer-row:last-child {
+    border-bottom: none;
+}
+
+.customer-avatar {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+    color: #6366f1;
+
+    font-weight: 800;
+}
+
+.customer-info {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-info strong {
+    margin-bottom: 3px;
+}
+
+.customer-info span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.customer-company {
+    color: #475569;
+    font-size: 14px;
+}
+
+.view-btn {
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    background: #eef2ff;
+    color: #4f46e5;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.empty {
+    padding: 35px;
+    text-align: center;
+    color: #64748b;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .section-header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .customer-company {
+        display: none;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .customer-row {
+        padding: 15px;
+    }
+
+    .customer-row .view-btn {
+        display: none;
+    }
+
+}
+
     </style>
 
 </head>
@@ -293,6 +425,94 @@
 
 
         </div>
+
+        <section class="recent-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Recent Customers
+            </h2>
+
+            <p>
+                Latest customers added to your CRM
+            </p>
+
+        </div>
+
+        <a
+            href="{% url 'customer_list' %}"
+            class="view-all"
+        >
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="recent-card">
+
+        {% if recent_customers %}
+
+            {% for customer in recent_customers %}
+
+                <div class="customer-row">
+
+                    <div class="customer-avatar">
+
+                        {{ customer.name|first|upper }}
+
+                    </div>
+
+
+                    <div class="customer-info">
+
+                        <strong>
+                            {{ customer.name }}
+                        </strong>
+
+                        <span>
+                            {{ customer.email }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="customer-company">
+
+                        {{ customer.company|default:"No company" }}
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'customer_detail' customer.id %}"
+                        class="view-btn"
+                    >
+                        View
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty">
+
+                <p>
+                    No customers added yet.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
 
 
     </main>

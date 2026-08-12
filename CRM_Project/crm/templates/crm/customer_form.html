@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Customer</title>
+
+</head>
+
+
+<body>
+
+    <h1>Add Customer</h1>
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+
+        <div>
+
+            <label>
+                Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Customer name"
+                required
+            >
+
+        </div>
+
+
+        <br>
+
+
+        <div>
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Customer email"
+                required
+            >
+
+        </div>
+
+
+        <br>
+
+
+        <div>
+
+            <label>
+                Phone
+            </label>
+
+            <input
+                type="text"
+                name="phone"
+                placeholder="Phone number"
+                required
+            >
+
+        </div>
+
+
+        <br>
+
+
+        <div>
+
+            <label>
+                Company
+            </label>
+
+            <input
+                type="text"
+                name="company"
+                placeholder="Company name"
+            >
+
+        </div>
+
+
+        <br>
+
+
+        <button type="submit">
+            Save Customer
+        </button>
+
+
+    </form>
+
+
+    <br>
+
+
+    <a href="{% url 'customer_list' %}">
+        ← Back to Customers
+    </a>
+
+
+</body>
+
+</html>
