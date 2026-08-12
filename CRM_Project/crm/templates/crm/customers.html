@@ -235,6 +235,22 @@
 .add-btn:hover {
     background: #4f46e5;
 }
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: #6366f1;
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    color: #4f46e5;
+    text-decoration: underline;
+}
     </style>
 
 </head>
@@ -249,27 +265,34 @@
 
             <div class="header-top">
 
-                <div>
+    <div>
 
-                    <h1>
-                        Customers
-                    </h1>
+        <a
+            href="{% url 'dashboard' %}"
+            class="back-btn"
+        >
+            ← Back to Dashboard
+        </a>
 
-                    <p>
-                        Manage your CRM customers
-                    </p>
+        <h1>
+            Customers
+        </h1>
 
-                </div>
+        <p>
+            Manage your CRM customers
+        </p>
+
+    </div>
 
 
-                <a
-                    href="{% url 'customer_create' %}"
-                    class="btn primary"
-                >
-                    + Add Customer
-                </a>
+    <a
+        href="{% url 'customer_create' %}"
+        class="btn primary"
+    >
+        + Add Customer
+    </a>
 
-            </div>
+</div>
 
         </div>
 

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Customer, Lead
 
 
+
 def dashboard(request):
 
     total_customers = Customer.objects.count()
@@ -138,4 +139,25 @@ def lead_list(request):
         request,
         "crm/lead_list.html",
         context
+    )
+
+def lead_create(request):
+
+    if request.method == "POST":
+
+        Lead.objects.create(
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            phone=request.POST.get("phone"),
+            company=request.POST.get("company"),
+            source=request.POST.get("source"),
+            status=request.POST.get("status"),
+            notes=request.POST.get("notes"),
+        )
+
+        return redirect("lead_list")
+
+    return render(
+        request,
+        "crm/lead_create.html"
     )

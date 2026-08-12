@@ -40,5 +40,10 @@ urlpatterns = [
         views.lead_list,
         name="lead_list"
     ),
+    path(
+        "leads/add/",
+        views.lead_create,
+        name="lead_create"
+    ),
 
 ]
