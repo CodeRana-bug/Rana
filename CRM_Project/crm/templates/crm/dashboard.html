@@ -598,6 +598,95 @@
 </section>
 
 
+<section class="recent-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Recent Tasks
+            </h2>
+
+            <p>
+                Latest tasks added to your CRM
+            </p>
+
+        </div>
+
+        <a
+            href="{% url 'task_list' %}"
+            class="view-all"
+        >
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="recent-card">
+
+        {% if recent_tasks %}
+
+            {% for task in recent_tasks %}
+
+                <div class="customer-row">
+
+                    <div class="customer-avatar">
+                        ✓
+                    </div>
+
+
+                    <div class="customer-info">
+
+                        <strong>
+                            {{ task.title }}
+                        </strong>
+
+                        <span>
+                            Created {{ task.created_at|date:"d M Y" }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="customer-company">
+
+                        {% if task.due_date %}
+                            Due {{ task.due_date|date:"d M Y" }}
+                        {% else %}
+                            No due date
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="status">
+
+                        {{ task.status }}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty">
+
+                <p>
+                    No tasks added yet.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
     </main>
 
 </div>

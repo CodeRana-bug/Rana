@@ -21,6 +21,9 @@ def dashboard(request):
     recent_leads = Lead.objects.order_by(
         "-created_at"
     )[:5]
+    recent_tasks = Task.objects.order_by(
+        "-created_at"
+    )[:5]
 
     context = {
         "total_customers": total_customers,
@@ -28,6 +31,7 @@ def dashboard(request):
         "pending_tasks": pending_tasks,
         "recent_customers": recent_customers,
         "recent_leads": recent_leads,
+        "recent_tasks": recent_tasks,
     }
 
     return render(
@@ -174,28 +178,6 @@ def lead_list(request):
         context
     )
 
-def lead_create(request):
-
-    if request.method == "POST":
-
-        form = LeadForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-            return redirect("lead_list")
-
-    else:
-
-        form = LeadForm()
-
-    return render(
-        request,
-        "crm/lead_form.html",
-        {
-            "form": form
-        }
-    )
 
 def lead_detail(request, id):
 
