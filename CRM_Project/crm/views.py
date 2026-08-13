@@ -1,9 +1,49 @@
 from django.shortcuts import render, redirect
 from .models import Customer, Lead, Task
 from .forms import LeadForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
+def login_view(request):
 
+    if request.method == "POST":
+
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password
+        )
+
+        if user is not None:
+
+            login(request, user)
+
+            return redirect("dashboard")
+
+        return render(
+            request,
+            "crm/login.html",
+            {
+                "error": "Invalid username or password."
+            }
+        )
+
+    return render(
+        request,
+        "crm/login.html"
+    )
+
+def logout_view(request):
+
+    logout(request)
+
+    return redirect("login")
+
+@login_required(login_url="login")
 def dashboard(request):
 
     total_customers = Customer.objects.count()
@@ -41,6 +81,7 @@ def dashboard(request):
     )
 
 
+@login_required(login_url="login")
 def customer_list(request):
 
     search = request.GET.get("search", "")
@@ -63,6 +104,7 @@ def customer_list(request):
         context
     )
 
+@login_required(login_url="login")
 def customer_detail(request, id):
 
     customer = Customer.objects.get(id=id)
@@ -78,6 +120,7 @@ def customer_detail(request, id):
     )
 
 
+@login_required(login_url="login")
 def customer_create(request):
 
     if request.method == "POST":
@@ -100,6 +143,8 @@ def customer_create(request):
         request,
         "crm/customer_form.html"
     )
+
+@login_required(login_url="login")
 def customer_edit(request, id):
 
     customer = Customer.objects.get(id=id)
@@ -124,6 +169,8 @@ def customer_edit(request, id):
         "crm/customer_edit.html",
         context
     )
+
+@login_required(login_url="login")
 def customer_delete(request, id):
 
     customer = Customer.objects.get(id=id)
@@ -144,7 +191,7 @@ def customer_delete(request, id):
         context
     )
 
-
+@login_required(login_url="login")
 def lead_create(request):
 
     if request.method == "POST":
@@ -164,6 +211,8 @@ def lead_create(request):
         {"form": form}
     )
 
+
+@login_required(login_url="login")
 def lead_list(request):
 
     leads = Lead.objects.order_by("-created_at")
@@ -179,6 +228,7 @@ def lead_list(request):
     )
 
 
+@login_required(login_url="login")
 def lead_detail(request, id):
 
     lead = Lead.objects.get(id=id)
@@ -189,6 +239,8 @@ def lead_detail(request, id):
         {"lead": lead}
     )
 
+
+@login_required(login_url="login")
 def lead_edit(request, id):
 
     lead = Lead.objects.get(id=id)
@@ -213,6 +265,8 @@ def lead_edit(request, id):
         {"lead": lead}
     )
 
+
+@login_required(login_url="login")
 def lead_delete(request, id):
 
     lead = Lead.objects.get(id=id)
@@ -227,6 +281,8 @@ def lead_delete(request, id):
         {"lead": lead}
     )
 
+
+@login_required(login_url="login")
 def task_list(request):
 
     tasks = Task.objects.all().order_by("-created_at")
@@ -239,6 +295,9 @@ def task_list(request):
         }
     )
 
+
+
+@login_required(login_url="login")
 def task_create(request):
 
     if request.method == "POST":
@@ -258,6 +317,9 @@ def task_create(request):
         "crm/task_form.html"
     )
 
+
+
+@login_required(login_url="login")
 def task_edit(request, id):
 
     task = Task.objects.get(id=id)
@@ -283,6 +345,8 @@ def task_edit(request, id):
     )
 
 
+
+@login_required(login_url="login")
 def task_delete(request, id):
 
     task = Task.objects.get(id=id)
@@ -301,6 +365,9 @@ def task_delete(request, id):
         }
     )
 
+
+
+@login_required(login_url="login")
 def reports(request):
 
     total_customers = Customer.objects.count()

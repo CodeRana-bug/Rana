@@ -355,6 +355,23 @@
             }
 
         }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user a {
+            color: #dc2626;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .user a:hover {
+            text-decoration: underline;
+        }
     </style>
 
 </head>
@@ -417,9 +434,12 @@
 
 
                 <div class="user">
-
-                    Rahul
-
+                    <span>
+                        {{ request.user.username }}
+                    </span>
+                    <a href="{% url 'logout' %}">
+                        Logout
+                    </a>
                 </div>
 
             </div>
