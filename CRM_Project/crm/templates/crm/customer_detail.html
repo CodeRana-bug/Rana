@@ -6,15 +6,11 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ customer.name }} | CRM</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -126,6 +122,15 @@
             background: #e2e8f0;
             color: #334155;
         }
+        
+        .delete {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .delete:hover {
+            background: #fecaca;
+        }
 
         @media (max-width: 600px) {
 
@@ -146,7 +151,6 @@
             }
 
         }
-
     </style>
 
 </head>
@@ -158,10 +162,7 @@
 
         <div class="container">
 
-            <a
-                href="{% url 'customer_list' %}"
-                class="back"
-            >
+            <a href="{% url 'customer_list' %}" class="back">
                 ← Back to Customers
             </a>
 
@@ -258,17 +259,13 @@
 
             <div class="actions">
 
-                <a
-                    href="{% url 'customer_edit' customer.id %}"
-                    class="btn edit"
-                >
+                <a href="{% url 'customer_edit' customer.id %}" class="btn edit">
                     Edit Customer
                 </a>
-
-                <a
-                    href="{% url 'customer_list' %}"
-                    class="btn back-btn"
-                >
+                <a href="{% url 'customer_delete' customer.id %}" class="btn delete">
+                    Delete Customer
+                </a>
+                <a href="{% url 'customer_list' %}" class="btn back-btn">
                     Back
                 </a>
 

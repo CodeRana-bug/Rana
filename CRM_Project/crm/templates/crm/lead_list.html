@@ -27,69 +27,100 @@
         }
 
         .container {
-            width: 90%;
-            max-width: 1100px;
+            width: 92%;
+            max-width: 1150px;
             margin: auto;
         }
+
+        .page {
+            padding: 40px 0;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 25px;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .back:hover {
+            color: #4f46e5;
+        }
+
+        /* HEADER */
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 35px 0;
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
         .header h1 {
-            font-size: 30px;
+            font-size: 32px;
+            margin-bottom: 6px;
         }
 
         .header p {
             color: #64748b;
-            margin-top: 5px;
+            font-size: 15px;
         }
 
+        /* ADD BUTTON */
+
         .add-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 12px 18px;
             background: #6366f1;
             color: white;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 14px;
+            transition: 0.2s;
         }
 
         .add-btn:hover {
             background: #4f46e5;
+            transform: translateY(-1px);
         }
 
-        .back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #6366f1;
-            text-decoration: none;
-            font-weight: 700;
-        }
+        /* LEAD CARD */
 
         .lead-card {
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
             overflow: hidden;
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
         }
+
+        /* ROW */
 
         .lead-row {
             display: grid;
+
             grid-template-columns:
                 1.2fr
-                1.3fr
+                1.4fr
                 1fr
                 120px
                 100px;
 
             align-items: center;
 
-            gap: 15px;
+            gap: 18px;
 
-            padding: 18px 20px;
+            padding: 18px 22px;
 
             border-bottom: 1px solid #e2e8f0;
         }
@@ -98,77 +129,142 @@
             border-bottom: none;
         }
 
+        /* HEADER ROW */
+
         .lead-header {
             background: #f1f5f9;
-            font-size: 13px;
-            font-weight: 800;
             color: #475569;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
         }
+
+        /* NAME */
 
         .lead-name {
             font-weight: 700;
+            font-size: 15px;
         }
+
+        /* EMAIL */
 
         .lead-email {
             color: #64748b;
             font-size: 14px;
         }
 
+        /* COMPANY */
+
         .company {
             color: #475569;
             font-size: 14px;
         }
 
+        /* STATUS */
+
         .status {
             display: inline-block;
             width: fit-content;
-            padding: 6px 10px;
+            padding: 6px 11px;
             border-radius: 20px;
+
             background: #eef2ff;
             color: #4f46e5;
+
             font-size: 12px;
             font-weight: 700;
         }
 
+        /* VIEW BUTTON */
+
         .view-btn {
-            padding: 7px 12px;
-            border-radius: 6px;
+            display: inline-block;
+            padding: 8px 13px;
+
+            border-radius: 7px;
+
             background: #eef2ff;
             color: #4f46e5;
+
             text-decoration: none;
+
             font-size: 13px;
             font-weight: 700;
+
+            transition: 0.2s;
         }
 
+        .view-btn:hover {
+            background: #e0e7ff;
+        }
+
+        /* EMPTY */
+
         .empty {
-            padding: 50px;
+            padding: 60px 20px;
             text-align: center;
             color: #64748b;
         }
 
-        @media (max-width: 800px) {
+        .empty h3 {
+            color: #0f172a;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .empty p {
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
 
             .lead-row {
                 grid-template-columns: 1fr 1fr;
+                gap: 12px;
             }
 
             .lead-header {
                 display: none;
             }
 
+            .lead-row > div:nth-child(1),
+            .lead-row > div:nth-child(2) {
+                padding-bottom: 3px;
+            }
+
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+            }
+
+            .page {
+                padding: 25px 0;
+            }
 
             .header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 20px;
+            }
+
+            .add-btn {
+                width: 100%;
+                justify-content: center;
             }
 
             .lead-row {
                 grid-template-columns: 1fr;
-                gap: 8px;
+                gap: 10px;
+                padding: 18px;
+            }
+
+            .lead-row > div {
+                width: 100%;
             }
 
         }
@@ -182,112 +278,153 @@
 
     <main class="container">
 
-        <a
-            href="{% url 'dashboard' %}"
-            class="back"
-        >
-            ← Back to Dashboard
-        </a>
+        <div class="page">
 
-
-        <div class="header">
-
-            <div>
-
-                <h1>
-                    Leads
-                </h1>
-
-                <p>
-                    Manage your potential customers.
-                </p>
-
-            </div>
-
+            <!-- BACK -->
 
             <a
-                href="{% url 'lead_create' %}"
-                class="add-btn"
+                href="{% url 'dashboard' %}"
+                class="back"
             >
-                + Add Lead
+                ← Back to Dashboard
             </a>
 
-        </div>
 
+            <!-- HEADER -->
 
-        <div class="lead-card">
+            <div class="header">
 
-            <div class="lead-row lead-header">
+                <div>
 
-                <div>Name</div>
-
-                <div>Email</div>
-
-                <div>Company</div>
-
-                <div>Status</div>
-
-                <div>Action</div>
-
-            </div>
-
-
-            {% if leads %}
-
-                {% for lead in leads %}
-
-                    <div class="lead-row">
-
-                        <div class="lead-name">
-                            {{ lead.name }}
-                        </div>
-
-                        <div class="lead-email">
-                            {{ lead.email }}
-                        </div>
-
-                        <div class="company">
-                            {{ lead.company|default:"No company" }}
-                        </div>
-
-                        <div>
-
-                            <span class="status">
-                                {{ lead.status }}
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <a
-    href="{% url 'lead_detail' lead.id %}"
-    class="view-btn"
->
-    View
-</a>
-
-                        </div>
-
-                    </div>
-
-                {% endfor %}
-
-            {% else %}
-
-                <div class="empty">
-
-                    <h3>
-                        No Leads Found
-                    </h3>
+                    <h1>
+                        Leads
+                    </h1>
 
                     <p>
-                        Start by adding your first lead.
+                        Manage your potential customers and sales opportunities.
                     </p>
 
                 </div>
 
-            {% endif %}
+
+                <a
+                    href="{% url 'lead_create' %}"
+                    class="add-btn"
+                >
+                    + Add Lead
+                </a>
+
+            </div>
+
+
+            <!-- LEAD TABLE -->
+
+            <div class="lead-card">
+
+
+                <!-- HEADER -->
+
+                <div class="lead-row lead-header">
+
+                    <div>
+                        Name
+                    </div>
+
+                    <div>
+                        Email
+                    </div>
+
+                    <div>
+                        Company
+                    </div>
+
+                    <div>
+                        Status
+                    </div>
+
+                    <div>
+                        Action
+                    </div>
+
+                </div>
+
+
+                <!-- LEADS -->
+
+                {% if leads %}
+
+                    {% for lead in leads %}
+
+                        <div class="lead-row">
+
+
+                            <div class="lead-name">
+
+                                {{ lead.name }}
+
+                            </div>
+
+
+                            <div class="lead-email">
+
+                                {{ lead.email }}
+
+                            </div>
+
+
+                            <div class="company">
+
+                                {{ lead.company|default:"No company" }}
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="status">
+
+                                    {{ lead.status }}
+
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <a
+                                    href="{% url 'lead_detail' lead.id %}"
+                                    class="view-btn"
+                                >
+                                    View
+                                </a>
+
+                            </div>
+
+
+                        </div>
+
+                    {% endfor %}
+
+
+                {% else %}
+
+                    <div class="empty">
+
+                        <h3>
+                            No Leads Found
+                        </h3>
+
+                        <p>
+                            Start by adding your first lead.
+                        </p>
+
+                    </div>
+
+                {% endif %}
+
+
+            </div>
 
         </div>
 

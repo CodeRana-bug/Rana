@@ -5,13 +5,11 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>CRM Dashboard</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -176,136 +174,187 @@
 
         /* ================= RECENT CUSTOMERS ================= */
 
-.recent-section {
-    margin-top: 40px;
-}
+        .recent-section {
+            margin-top: 40px;
+        }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-}
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
 
-.section-header h2 {
-    font-size: 22px;
-    margin-bottom: 5px;
-}
+        .section-header h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
 
-.section-header p {
-    color: #64748b;
-    font-size: 14px;
-}
+        .section-header p {
+            color: #64748b;
+            font-size: 14px;
+        }
 
-.view-all {
-    color: #6366f1;
-    font-weight: 700;
-    text-decoration: none;
-}
+        .view-all {
+            color: #6366f1;
+            font-weight: 700;
+            text-decoration: none;
+        }
 
-.recent-card {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    overflow: hidden;
-}
+        .recent-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            overflow: hidden;
+        }
 
-.customer-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 18px 20px;
-    border-bottom: 1px solid #e2e8f0;
-}
+        .customer-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
 
-.customer-row:last-child {
-    border-bottom: none;
-}
+        .customer-row:last-child {
+            border-bottom: none;
+        }
 
-.customer-avatar {
-    width: 45px;
-    height: 45px;
+        .customer-avatar {
+            width: 45px;
+            height: 45px;
 
-    display: grid;
-    place-items: center;
+            display: grid;
+            place-items: center;
 
-    border-radius: 50%;
+            border-radius: 50%;
 
-    background: #eef2ff;
-    color: #6366f1;
+            background: #eef2ff;
+            color: #6366f1;
 
-    font-weight: 800;
-}
+            font-weight: 800;
+        }
 
-.customer-info {
-    flex: 1;
+        .customer-info {
+            flex: 1;
 
-    display: flex;
-    flex-direction: column;
-}
+            display: flex;
+            flex-direction: column;
+        }
 
-.customer-info strong {
-    margin-bottom: 3px;
-}
+        .customer-info strong {
+            margin-bottom: 3px;
+        }
 
-.customer-info span {
-    color: #64748b;
-    font-size: 13px;
-}
+        .customer-info span {
+            color: #64748b;
+            font-size: 13px;
+        }
 
-.customer-company {
-    color: #475569;
-    font-size: 14px;
-}
+        .customer-company {
+            color: #475569;
+            font-size: 14px;
+        }
 
-.view-btn {
-    padding: 7px 12px;
+        .view-btn {
+            padding: 7px 12px;
 
-    border-radius: 6px;
+            border-radius: 6px;
 
-    background: #eef2ff;
-    color: #4f46e5;
+            background: #eef2ff;
+            color: #4f46e5;
 
-    text-decoration: none;
+            text-decoration: none;
 
-    font-size: 13px;
-    font-weight: 700;
-}
+            font-size: 13px;
+            font-weight: 700;
+        }
 
-.empty {
-    padding: 35px;
-    text-align: center;
-    color: #64748b;
-}
+        .empty {
+            padding: 35px;
+            text-align: center;
+            color: #64748b;
+        }
 
 
-/* MOBILE */
+        /* MOBILE */
 
-@media (max-width: 700px) {
+        @media (max-width: 700px) {
 
-    .section-header {
-        align-items: flex-start;
-        gap: 15px;
-    }
+            .section-header {
+                align-items: flex-start;
+                gap: 15px;
+            }
 
-    .customer-company {
-        display: none;
-    }
+            .customer-company {
+                display: none;
+            }
 
-}
+        }
 
-@media (max-width: 500px) {
+        @media (max-width: 500px) {
 
-    .customer-row {
-        padding: 15px;
-    }
+            .customer-row {
+                padding: 15px;
+            }
 
-    .customer-row .view-btn {
-        display: none;
-    }
+            .customer-row .view-btn {
+                display: none;
+            }
 
-}
+        }
 
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .quick-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #0f172a;
+            transition: .25s;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+        }
+
+        .quick-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: #eef2ff;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+        .quick-card strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .quick-card span {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+        }
     </style>
 
 </head>
@@ -313,383 +362,437 @@
 
 <body>
 
-<div class="dashboard">
+    <div class="dashboard">
 
 
-    <!-- ================= SIDEBAR ================= -->
+        <!-- ================= SIDEBAR ================= -->
 
-    <aside class="sidebar">
+        <aside class="sidebar">
 
-        <div class="logo">
-            CRM<span>.</span>
-        </div>
-
-        <nav class="menu">
-
-            <a href="{% url 'dashboard' %}" class="active">
-                📊 Dashboard
-            </a>
-
-            <a href="{% url 'customer_list' %}">👥 Customers</a>
-
-            <a href="{% url 'lead_list' %}">🎯 Leads</a>
-
-            <a href="{% url 'task_list' %}">
-                ✅ Tasks
-            </a>
-
-            <a href="#">
-                📈 Reports
-            </a>
-
-        </nav>
-
-    </aside>
-
-
-    <!-- ================= MAIN CONTENT ================= -->
-
-    <main class="main-content">
-
-
-        <div class="topbar">
-
-            <div>
-
-                <h1>
-                    Dashboard
-                </h1>
-
-                <p>
-                    Welcome to your CRM dashboard.
-                </p>
-
+            <div class="logo">
+                CRM<span>.</span>
             </div>
 
+            <nav class="menu">
 
-            <div class="user">
+                <a href="{% url 'dashboard' %}" class="active">
+                    📊 Dashboard
+                </a>
 
-                Rahul
+                <a href="{% url 'customer_list' %}">👥 Customers</a>
 
-            </div>
+                <a href="{% url 'lead_list' %}">🎯 Leads</a>
 
-        </div>
+                <a href="{% url 'task_list' %}">
+                    ✅ Tasks
+                </a>
+
+                <a href="#">
+                    📈 Reports
+                </a>
+
+            </nav>
+
+        </aside>
 
 
-        <!-- ================= STATS ================= -->
+        <!-- ================= MAIN CONTENT ================= -->
 
-        <div class="stats-grid">
+        <main class="main-content">
 
 
-            <div class="stat-card">
+            <div class="topbar">
 
-                <h3>
-                    Total Customers
-                </h3>
+                <div>
 
-                <div class="number">
-                    {{ total_customers }}
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Welcome to your CRM dashboard.
+                    </p>
+
+                </div>
+
+
+                <div class="user">
+
+                    Rahul
+
                 </div>
 
             </div>
 
 
-            <div class="stat-card">
+            <!-- ================= STATS ================= -->
 
-                <h3>
-                    Total Leads
-                </h3>
+            <div class="stats-grid">
 
-                <div class="number">
-                    {{ total_leads }}
+
+                <div class="stat-card">
+
+                    <h3>
+                        Total Customers
+                    </h3>
+
+                    <div class="number">
+                        {{ total_customers }}
+                    </div>
+
                 </div>
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Total Leads
+                    </h3>
+
+                    <div class="number">
+                        {{ total_leads }}
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Pending Tasks
+                    </h3>
+
+                    <div class="number">
+                        {{ pending_tasks }}
+                    </div>
+
+                </div>
+
 
             </div>
 
 
-            <div class="stat-card">
+            <section class="recent-section">
 
-                <h3>
-                    Pending Tasks
-                </h3>
+                <div class="section-header">
 
-                <div class="number">
-                    {{ pending_tasks }}
+                    <div>
+                        <h2>Quick Actions</h2>
+
+                        <p>
+                            Quickly add new CRM records
+                        </p>
+                    </div>
+
                 </div>
 
-            </div>
+
+                <div class="quick-actions">
+
+                    <a href="{% url 'customer_create' %}" class="quick-card">
+                        <div class="quick-icon">
+                            👥
+                        </div>
+
+                        <div>
+                            <strong>Add Customer</strong>
+
+                            <span>
+                                Create a new customer
+                            </span>
+                        </div>
+                    </a>
 
 
-        </div>
+                    <a href="{% url 'lead_create' %}" class="quick-card">
+                        <div class="quick-icon">
+                            🎯
+                        </div>
 
-        <section class="recent-section">
+                        <div>
+                            <strong>Add Lead</strong>
 
-    <div class="section-header">
-
-        <div>
-
-            <h2>
-                Recent Customers
-            </h2>
-
-            <p>
-                Latest customers added to your CRM
-            </p>
-
-        </div>
-
-        <a
-            href="{% url 'customer_list' %}"
-            class="view-all"
-        >
-            View All →
-        </a>
-
-    </div>
+                            <span>
+                                Create a new lead
+                            </span>
+                        </div>
+                    </a>
 
 
-    <div class="recent-card">
+                    <a href="{% url 'task_create' %}" class="quick-card">
+                        <div class="quick-icon">
+                            ✅
+                        </div>
 
-        {% if recent_customers %}
+                        <div>
+                            <strong>Add Task</strong>
 
-            {% for customer in recent_customers %}
-
-                <div class="customer-row">
-
-                    <div class="customer-avatar">
-
-                        {{ customer.name|first|upper }}
-
-                    </div>
-
-
-                    <div class="customer-info">
-
-                        <strong>
-                            {{ customer.name }}
-                        </strong>
-
-                        <span>
-                            {{ customer.email }}
-                        </span>
-
-                    </div>
-
-
-                    <div class="customer-company">
-
-                        {{ customer.company|default:"No company" }}
-
-                    </div>
-
-
-                    <a
-                        href="{% url 'customer_detail' customer.id %}"
-                        class="view-btn"
-                    >
-                        View
+                            <span>
+                                Create a new task
+                            </span>
+                        </div>
                     </a>
 
                 </div>
 
-            {% endfor %}
+            </section>
 
-        {% else %}
+            <section class="recent-section">
 
-            <div class="empty">
+                <div class="section-header">
 
-                <p>
-                    No customers added yet.
-                </p>
+                    <div>
 
-            </div>
+                        <h2>
+                            Recent Customers
+                        </h2>
 
-        {% endif %}
-
-    </div>
-
-</section>
-
-<section class="recent-section">
-
-    <div class="section-header">
-
-        <div>
-
-            <h2>
-                Recent Leads
-            </h2>
-
-            <p>
-                Latest leads added to your CRM
-            </p>
-
-        </div>
-
-        <a
-            href="{% url 'lead_list' %}"
-            class="view-all"
-        >
-            View All →
-        </a>
-
-    </div>
-
-
-    <div class="recent-card">
-
-        {% if recent_leads %}
-
-            {% for lead in recent_leads %}
-
-                <div class="customer-row">
-
-                    <div class="customer-avatar">
-
-                        {{ lead.name|first|upper }}
+                        <p>
+                            Latest customers added to your CRM
+                        </p>
 
                     </div>
 
-
-                    <div class="customer-info">
-
-                        <strong>
-                            {{ lead.name }}
-                        </strong>
-
-                        <span>
-                            {{ lead.email }}
-                        </span>
-
-                    </div>
-
-
-                    <div class="customer-company">
-
-                        {{ lead.company|default:"No company" }}
-
-                    </div>
-
-
-                    <div class="status">
-
-                        {{ lead.status }}
-
-                    </div>
+                    <a href="{% url 'customer_list' %}" class="view-all">
+                        View All →
+                    </a>
 
                 </div>
 
-            {% endfor %}
 
-        {% else %}
+                <div class="recent-card">
 
-            <div class="empty">
+                    {% if recent_customers %}
 
-                <p>
-                    No leads added yet.
-                </p>
+                    {% for customer in recent_customers %}
 
-            </div>
+                    <div class="customer-row">
 
-        {% endif %}
+                        <div class="customer-avatar">
 
-    </div>
+                            {{ customer.name|first|upper }}
 
-</section>
+                        </div>
 
 
-<section class="recent-section">
+                        <div class="customer-info">
 
-    <div class="section-header">
+                            <strong>
+                                {{ customer.name }}
+                            </strong>
 
-        <div>
+                            <span>
+                                {{ customer.email }}
+                            </span>
 
-            <h2>
-                Recent Tasks
-            </h2>
-
-            <p>
-                Latest tasks added to your CRM
-            </p>
-
-        </div>
-
-        <a
-            href="{% url 'task_list' %}"
-            class="view-all"
-        >
-            View All →
-        </a>
-
-    </div>
+                        </div>
 
 
-    <div class="recent-card">
+                        <div class="customer-company">
 
-        {% if recent_tasks %}
+                            {{ customer.company|default:"No company" }}
 
-            {% for task in recent_tasks %}
-
-                <div class="customer-row">
-
-                    <div class="customer-avatar">
-                        ✓
-                    </div>
+                        </div>
 
 
-                    <div class="customer-info">
-
-                        <strong>
-                            {{ task.title }}
-                        </strong>
-
-                        <span>
-                            Created {{ task.created_at|date:"d M Y" }}
-                        </span>
+                        <a href="{% url 'customer_detail' customer.id %}" class="view-btn">
+                            View
+                        </a>
 
                     </div>
 
+                    {% endfor %}
 
-                    <div class="customer-company">
+                    {% else %}
 
-                        {% if task.due_date %}
+                    <div class="empty">
+
+                        <p>
+                            No customers added yet.
+                        </p>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </section>
+
+            <section class="recent-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Recent Leads
+                        </h2>
+
+                        <p>
+                            Latest leads added to your CRM
+                        </p>
+
+                    </div>
+
+                    <a href="{% url 'lead_list' %}" class="view-all">
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div class="recent-card">
+
+                    {% if recent_leads %}
+
+                    {% for lead in recent_leads %}
+
+                    <div class="customer-row">
+
+                        <div class="customer-avatar">
+
+                            {{ lead.name|first|upper }}
+
+                        </div>
+
+
+                        <div class="customer-info">
+
+                            <strong>
+                                {{ lead.name }}
+                            </strong>
+
+                            <span>
+                                {{ lead.email }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="customer-company">
+
+                            {{ lead.company|default:"No company" }}
+
+                        </div>
+
+
+                        <div class="status">
+
+                            {{ lead.status }}
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                    {% else %}
+
+                    <div class="empty">
+
+                        <p>
+                            No leads added yet.
+                        </p>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </section>
+
+
+            <section class="recent-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Recent Tasks
+                        </h2>
+
+                        <p>
+                            Latest tasks added to your CRM
+                        </p>
+
+                    </div>
+
+                    <a href="{% url 'task_list' %}" class="view-all">
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div class="recent-card">
+
+                    {% if recent_tasks %}
+
+                    {% for task in recent_tasks %}
+
+                    <div class="customer-row">
+
+                        <div class="customer-avatar">
+                            ✓
+                        </div>
+
+
+                        <div class="customer-info">
+
+                            <strong>
+                                {{ task.title }}
+                            </strong>
+
+                            <span>
+                                Created {{ task.created_at|date:"d M Y" }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="customer-company">
+
+                            {% if task.due_date %}
                             Due {{ task.due_date|date:"d M Y" }}
-                        {% else %}
+                            {% else %}
                             No due date
-                        {% endif %}
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="status">
+
+                            {{ task.status }}
+
+                        </div>
 
                     </div>
 
+                    {% endfor %}
 
-                    <div class="status">
+                    {% else %}
 
-                        {{ task.status }}
+                    <div class="empty">
+
+                        <p>
+                            No tasks added yet.
+                        </p>
 
                     </div>
+
+                    {% endif %}
 
                 </div>
 
-            {% endfor %}
+            </section>
 
-        {% else %}
-
-            <div class="empty">
-
-                <p>
-                    No tasks added yet.
-                </p>
-
-            </div>
-
-        {% endif %}
+        </main>
 
     </div>
-
-</section>
-
-    </main>
-
-</div>
 
 </body>
 
