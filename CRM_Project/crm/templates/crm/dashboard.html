@@ -334,7 +334,7 @@
 
             <a href="{% url 'lead_list' %}">🎯 Leads</a>
 
-            <a href="#">
+            <a href="{% url 'task_list' %}">
                 ✅ Tasks
             </a>
 
@@ -401,7 +401,7 @@
                 </h3>
 
                 <div class="number">
-                    0
+                    {{ total_leads }}
                 </div>
 
             </div>
@@ -414,7 +414,7 @@
                 </h3>
 
                 <div class="number">
-                    0
+                    {{ pending_tasks }}
                 </div>
 
             </div>
@@ -500,6 +500,93 @@
 
                 <p>
                     No customers added yet.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+<section class="recent-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Recent Leads
+            </h2>
+
+            <p>
+                Latest leads added to your CRM
+            </p>
+
+        </div>
+
+        <a
+            href="{% url 'lead_list' %}"
+            class="view-all"
+        >
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="recent-card">
+
+        {% if recent_leads %}
+
+            {% for lead in recent_leads %}
+
+                <div class="customer-row">
+
+                    <div class="customer-avatar">
+
+                        {{ lead.name|first|upper }}
+
+                    </div>
+
+
+                    <div class="customer-info">
+
+                        <strong>
+                            {{ lead.name }}
+                        </strong>
+
+                        <span>
+                            {{ lead.email }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="customer-company">
+
+                        {{ lead.company|default:"No company" }}
+
+                    </div>
+
+
+                    <div class="status">
+
+                        {{ lead.status }}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty">
+
+                <p>
+                    No leads added yet.
                 </p>
 
             </div>

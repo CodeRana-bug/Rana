@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Delete Task | CRM</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .page {
+            padding: 60px 0;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .message {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .task-name {
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cancel {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .delete {
+            background: #dc2626;
+            color: white;
+        }
+
+        .delete:hover {
+            background: #b91c1c;
+        }
+
+        @media (max-width: 500px) {
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="container">
+
+        <div class="page">
+
+            <div class="card">
+
+                <div class="icon">
+                    ⚠️
+                </div>
+
+                <h1>
+                    Delete Task?
+                </h1>
+
+                <p class="message">
+
+                    Are you sure you want to delete
+
+                    <span class="task-name">
+                        "{{ task.title }}"
+                    </span>
+
+                    ?
+
+                    <br>
+
+                    This action cannot be undone.
+
+                </p>
+
+
+                <div class="actions">
+
+                    <a
+                        href="{% url 'task_list' %}"
+                        class="btn cancel"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <button
+                            type="submit"
+                            class="btn delete"
+                        >
+                            Delete Task
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Customer, Lead
+from .models import Customer, Lead, Task
 from .forms import LeadForm
 
 
@@ -8,13 +8,26 @@ def dashboard(request):
 
     total_customers = Customer.objects.count()
 
+    total_leads = Lead.objects.count()
+
+    pending_tasks = Task.objects.filter(
+        status="Pending"
+    ).count()
+
     recent_customers = Customer.objects.order_by(
+        "-created_at"
+    )[:5]
+
+    recent_leads = Lead.objects.order_by(
         "-created_at"
     )[:5]
 
     context = {
         "total_customers": total_customers,
+        "total_leads": total_leads,
+        "pending_tasks": pending_tasks,
         "recent_customers": recent_customers,
+        "recent_leads": recent_leads,
     }
 
     return render(
@@ -230,4 +243,78 @@ def lead_delete(request, id):
         request,
         "crm/lead_delete.html",
         {"lead": lead}
+    )
+
+def task_list(request):
+
+    tasks = Task.objects.all().order_by("-created_at")
+
+    return render(
+        request,
+        "crm/tasks.html",
+        {
+            "tasks": tasks
+        }
+    )
+
+def task_create(request):
+
+    if request.method == "POST":
+
+        Task.objects.create(
+            title=request.POST.get("title"),
+            description=request.POST.get("description"),
+            due_date=request.POST.get("due_date"),
+            priority=request.POST.get("priority"),
+            status=request.POST.get("status"),
+        )
+
+        return redirect("task_list")
+
+    return render(
+        request,
+        "crm/task_form.html"
+    )
+
+def task_edit(request, id):
+
+    task = Task.objects.get(id=id)
+
+    if request.method == "POST":
+
+        task.title = request.POST.get("title")
+        task.description = request.POST.get("description")
+        task.due_date = request.POST.get("due_date")
+        task.priority = request.POST.get("priority")
+        task.status = request.POST.get("status")
+
+        task.save()
+
+        return redirect("task_list")
+
+    return render(
+        request,
+        "crm/task_edit.html",
+        {
+            "task": task
+        }
+    )
+
+
+def task_delete(request, id):
+
+    task = Task.objects.get(id=id)
+
+    if request.method == "POST":
+
+        task.delete()
+
+        return redirect("task_list")
+
+    return render(
+        request,
+        "crm/task_delete.html",
+        {
+            "task": task
+        }
     )
