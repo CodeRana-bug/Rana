@@ -300,3 +300,55 @@ def task_delete(request, id):
             "task": task
         }
     )
+
+def reports(request):
+
+    total_customers = Customer.objects.count()
+
+    total_leads = Lead.objects.count()
+
+    total_tasks = Task.objects.count()
+
+    pending_tasks = Task.objects.filter(
+        status="Pending"
+    ).count()
+
+    completed_tasks = Task.objects.filter(
+        status="Completed"
+    ).count()
+
+    new_leads = Lead.objects.filter(
+        status="New"
+    ).count()
+
+    contacted_leads = Lead.objects.filter(
+        status="Contacted"
+    ).count()
+
+    qualified_leads = Lead.objects.filter(
+        status="Qualified"
+    ).count()
+
+    converted_leads = Lead.objects.filter(
+        status="Converted"
+    ).count()
+
+    context = {
+        "total_customers": total_customers,
+        "total_leads": total_leads,
+        "total_tasks": total_tasks,
+
+        "pending_tasks": pending_tasks,
+        "completed_tasks": completed_tasks,
+
+        "new_leads": new_leads,
+        "contacted_leads": contacted_leads,
+        "qualified_leads": qualified_leads,
+        "converted_leads": converted_leads,
+    }
+
+    return render(
+        request,
+        "crm/reports.html",
+        context
+    )

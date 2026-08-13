@@ -89,4 +89,9 @@ urlpatterns = [
         views.task_delete,
         name="task_delete"
     ),
+    path(
+        "reports/",
+        views.reports,
+        name="reports"
+    ),
 ]
