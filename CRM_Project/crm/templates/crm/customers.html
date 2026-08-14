@@ -1,366 +1,379 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "crm/base.html" %}
 
-<head>
+{% block title %}
+Customers | CRM
+{% endblock %}
 
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+{% block extra_css %}
 
-    <title>Customers | CRM</title>
+<style>
 
-    <style>
+    .header {
+        margin-bottom: 30px;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8fafc;
-            color: #0f172a;
-        }
+    .header h1 {
+        font-size: 32px;
+        margin-bottom: 6px;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1150px;
-            margin: auto;
-        }
+    .header p {
+        color: #64748b;
+    }
 
-        /* HEADER */
+    .back-btn {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: #6366f1;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+    }
 
-        .header {
-            padding: 35px 0;
-        }
+    .back-btn:hover {
+        color: #4f46e5;
+        text-decoration: underline;
+    }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
+    /* BUTTON */
 
-        .header h1 {
-            font-size: 32px;
-            margin-bottom: 6px;
-        }
+    .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+    }
 
-        .header p {
-            color: #64748b;
-        }
+    .primary {
+        background: #6366f1;
+        color: white;
+    }
 
-        /* BUTTON */
+    .primary:hover {
+        background: #4f46e5;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-        }
-
-        .primary {
-            background: #6366f1;
-            color: white;
-        }
-
-        .primary:hover {
-            background: #4f46e5;
-        }
-
-        /* TABLE CARD */
-
-        .table-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            overflow-x: auto;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 700px;
-        }
-
-        th {
-            background: #f1f5f9;
-            color: #475569;
-            font-size: 13px;
-            text-align: left;
-            padding: 16px;
-        }
-
-        td {
-            padding: 17px 16px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 14px;
-        }
-
-        tr:hover {
-            background: #f8fafc;
-        }
-
-        .customer-name {
-            font-weight: 700;
-        }
-
-        .email {
-            color: #64748b;
-        }
-
-        /* ACTIONS */
-
-        .actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .action-btn {
-            padding: 7px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .edit {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-
-        .delete {
-            background: #fee2e2;
-            color: #dc2626;
-        }
-
-        /* EMPTY */
-
-        .empty {
-            text-align: center;
-            padding: 50px;
-            color: #64748b;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            .header-top {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .header h1 {
-                font-size: 26px;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-        }
-        .search-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-}
-
-.search-form input {
-    flex: 1;
-    padding: 13px 15px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 15px;
-    outline: none;
-}
-
-.search-form input:focus {
-    border-color: #6366f1;
-}
-
-.search-form button {
-    padding: 13px 20px;
-    border: none;
-    border-radius: 8px;
-    background: #6366f1;
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.search-form a {
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    color: #6366f1;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-@media (max-width: 600px) {
+    /* SEARCH */
 
     .search-form {
-        flex-direction: column;
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .search-form input {
+        flex: 1;
+        padding: 13px 15px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 15px;
+        outline: none;
+    }
+
+    .search-form input:focus {
+        border-color: #6366f1;
     }
 
     .search-form button {
-        width: 100%;
+        padding: 13px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #6366f1;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
     }
 
+    .search-form button:hover {
+        background: #4f46e5;
+    }
+
+    .search-form a {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        color: #6366f1;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    /* TABLE */
+
+    .table-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        overflow-x: auto;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 700px;
+    }
+
+    th {
+        background: #f1f5f9;
+        color: #475569;
+        font-size: 13px;
+        text-align: left;
+        padding: 16px;
+    }
+
+    td {
+        padding: 17px 16px;
+        border-top: 1px solid #e2e8f0;
+        font-size: 14px;
+    }
+
+    tr:hover {
+        background: #f8fafc;
+    }
+
+    .customer-name {
+        font-weight: 700;
+    }
+
+    .email {
+        color: #64748b;
+    }
+
+    /* ACTIONS */
+
+    .actions {
+        display: flex;
+        gap: 8px;
+    }
+
+    .action-btn {
+        padding: 7px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .view {
+        background: #ecfeff;
+        color: #0891b2;
+    }
+
+    .edit {
+        background: #eef2ff;
+        color: #4f46e5;
+    }
+
+    .delete {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+    /* EMPTY */
+
+    .empty {
+        text-align: center;
+        padding: 50px;
+        color: #64748b;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+        .header-top {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .header h1 {
+            font-size: 26px;
+        }
+
+        .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .search-form {
+            flex-direction: column;
+        }
+
+        .search-form button {
+            width: 100%;
+        }
+
+    }
+
+    .customer-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
-.view {
-    background: #ecfeff;
-    color: #0891b2;
+.customer-toolbar .search-form {
+    flex: 1;
+    margin-bottom: 0;
 }
 
 .add-btn {
-    display: inline-block;
-    padding: 11px 18px;
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 20px;
+    min-width: 160px;
+    height: 46px;
     background: #6366f1;
     color: white;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .add-btn:hover {
     background: #4f46e5;
 }
 
-.back-btn {
-    display: inline-block;
-    margin-bottom: 12px;
+@media (max-width: 700px) {
 
-    color: #6366f1;
-    font-size: 14px;
-    font-weight: 700;
+    .customer-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-    text-decoration: none;
+    .customer-toolbar .search-form {
+        width: 100%;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
 }
 
-.back-btn:hover {
-    color: #4f46e5;
-    text-decoration: underline;
-}
-    </style>
+</style>
 
-</head>
+{% endblock %}
 
 
-<body>
+{% block header %}
+
+<div class="header">
+
+    <a
+        href="{% url 'dashboard' %}"
+        class="back-btn"
+    >
+        ← Back to Dashboard
+    </a>
+
+    <h1>
+        Customers
+    </h1>
+
+    <p>
+        Manage your CRM customers
+    </p>
+
+</div>
+
+{% endblock %}
 
 
-    <header class="header">
+{% block content %}
 
-        <div class="container">
 
-            <div class="header-top">
+<!-- SEARCH -->
 
-    <div>
+<div class="customer-toolbar">
 
-        <a
-            href="{% url 'dashboard' %}"
-            class="back-btn"
+    <form method="GET" class="search-form">
+
+        <input
+            type="text"
+            name="search"
+            value="{{ search }}"
+            placeholder="🔍 Search customer..."
         >
-            ← Back to Dashboard
-        </a>
 
-        <h1>
-            Customers
-        </h1>
+        <button type="submit">
+            Search
+        </button>
 
-        <p>
-            Manage your CRM customers
-        </p>
+        {% if search %}
 
-    </div>
+            <a href="{% url 'customer_list' %}">
+                Clear
+            </a>
+
+        {% endif %}
+
+    </form>
 
 
     <a
         href="{% url 'customer_create' %}"
-        class="btn primary"
+        class="add-btn"
     >
         + Add Customer
     </a>
 
 </div>
 
-        </div>
 
-    </header>
+<!-- CUSTOMER TABLE -->
 
+<div class="table-card">
 
-    <main class="container">
-<form method="GET" class="search-form">
+    {% if customers %}
 
-    <input
-        type="text"
-        name="search"
-        value="{{ search }}"
-        placeholder="🔍 Search customer..."
-    >
+        <table>
 
-    <button type="submit">
-        Search
-    </button>
+            <thead>
 
-    {% if search %}
+                <tr>
 
-        <a href="{% url 'customer_list' %}">
-            Clear
-        </a>
+                    <th>
+                        Customer
+                    </th>
 
-    {% endif %}
+                    <th>
+                        Email
+                    </th>
 
-</form>
+                    <th>
+                        Phone
+                    </th>
 
-        <div class="table-card">
+                    <th>
+                        Company
+                    </th>
 
-            {% if customers %}
+                    <th>
+                        Actions
+                    </th>
 
-            <table>
+                </tr>
 
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Customer
-                        </th>
-
-                        <th>
-                            Email
-                        </th>
-
-                        <th>
-                            Phone
-                        </th>
-
-                        <th>
-                            Company
-                        </th>
-
-                        <th>
-                            Actions
-                        </th>
-
-                    </tr>
-
-                </thead>
+            </thead>
 
 
-                <tbody>
+            <tbody>
 
-                    {% for customer in customers %}
+                {% for customer in customers %}
 
                     <tr>
 
@@ -396,61 +409,57 @@
 
                             <div class="actions">
 
-    <a
-        href="{% url 'customer_detail' customer.id %}"
-        class="action-btn view"
-    >
-        View
-    </a>
+                                <a
+                                    href="{% url 'customer_detail' customer.id %}"
+                                    class="action-btn view"
+                                >
+                                    View
+                                </a>
 
-    <a
-        href="{% url 'customer_edit' customer.id %}"
-        class="action-btn edit"
-    >
-        Edit
-    </a>
 
-    <a
-        href="{% url 'customer_delete' customer.id %}"
-        class="action-btn delete"
-    >
-        Delete
-    </a>
+                                <a
+                                    href="{% url 'customer_edit' customer.id %}"
+                                    class="action-btn edit"
+                                >
+                                    Edit
+                                </a>
 
-</div>
+
+                                <a
+                                    href="{% url 'customer_delete' customer.id %}"
+                                    class="action-btn delete"
+                                >
+                                    Delete
+                                </a>
+
+                            </div>
 
                         </td>
 
                     </tr>
 
-                    {% endfor %}
+                {% endfor %}
 
-                </tbody>
+            </tbody>
 
-            </table>
+        </table>
 
-            {% else %}
+    {% else %}
 
-            <div class="empty">
+        <div class="empty">
 
-                <h3>
-                    No customers yet
-                </h3>
+            <h3>
+                No customers yet
+            </h3>
 
-                <p>
-                    Add your first customer to get started.
-                </p>
-
-            </div>
-
-            {% endif %}
+            <p>
+                Add your first customer to get started.
+            </p>
 
         </div>
 
+    {% endif %}
 
-    </main>
+</div>
 
-
-</body>
-
-</html>
+{% endblock %}
