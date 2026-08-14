@@ -5,7 +5,10 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Edit Task | CRM</title>
 
@@ -39,6 +42,11 @@
             color: #6366f1;
             text-decoration: none;
             font-weight: 700;
+        }
+
+        .back:hover {
+            color: #4f46e5;
+            text-decoration: underline;
         }
 
         .form-card {
@@ -114,6 +122,7 @@
 
 </head>
 
+
 <body>
 
     <main class="container">
@@ -127,6 +136,7 @@
                 ← Back to Tasks
             </a>
 
+
             <div class="form-card">
 
                 <h1>
@@ -134,12 +144,16 @@
                 </h1>
 
                 <p class="subtitle">
-                    Update your CRM task.
+                    Update your CRM task details.
                 </p>
+
 
                 <form method="POST">
 
                     {% csrf_token %}
+
+
+                    <!-- TITLE -->
 
                     <div class="form-group">
 
@@ -157,6 +171,9 @@
 
                     </div>
 
+
+                    <!-- DESCRIPTION -->
+
                     <div class="form-group">
 
                         <label for="description">
@@ -169,6 +186,9 @@
                         >{{ task.description }}</textarea>
 
                     </div>
+
+
+                    <!-- DUE DATE -->
 
                     <div class="form-group">
 
@@ -184,6 +204,9 @@
                         >
 
                     </div>
+
+
+                    <!-- PRIORITY -->
 
                     <div class="form-group">
 
@@ -221,6 +244,9 @@
 
                     </div>
 
+
+                    <!-- STATUS -->
+
                     <div class="form-group">
 
                         <label for="status">
@@ -257,12 +283,14 @@
 
                     </div>
 
+
                     <button
                         type="submit"
                         class="btn"
                     >
                         Update Task
                     </button>
+
 
                 </form>
 

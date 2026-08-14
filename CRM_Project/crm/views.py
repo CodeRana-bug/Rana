@@ -300,9 +300,19 @@ def task_list(request):
 @login_required(login_url="login")
 def task_create(request):
 
+    leads = Lead.objects.all().order_by("name")
+
     if request.method == "POST":
 
+        lead_id = request.POST.get("lead")
+
+        lead = None
+
+        if lead_id:
+            lead = Lead.objects.get(id=lead_id)
+
         Task.objects.create(
+            lead=lead,
             title=request.POST.get("title"),
             description=request.POST.get("description"),
             due_date=request.POST.get("due_date"),
@@ -314,7 +324,10 @@ def task_create(request):
 
     return render(
         request,
-        "crm/task_form.html"
+        "crm/task_form.html",
+        {
+            "leads": leads
+        }
     )
 
 

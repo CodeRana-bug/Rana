@@ -71,6 +71,14 @@ class Task(models.Model):
         ("Completed", "Completed"),
     ]
 
+    lead = models.ForeignKey(
+        Lead,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="tasks"
+    )
+
     title = models.CharField(max_length=200)
 
     description = models.TextField(blank=True)
