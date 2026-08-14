@@ -112,14 +112,15 @@ urlpatterns = [
     # ================= PASSWORD RESET =================
 
     path(
-        "password-reset/",
+    "password-reset/",
         auth_views.PasswordResetView.as_view(
             template_name="crm/password_reset.html",
-            email_template_name="crm/password_reset_email.html",
+            email_template_name="crm/password_reset_email.txt",
+            html_email_template_name="crm/password_reset_email.html",
             success_url="/password-reset/done/"
         ),
-        name="password_reset"
-    ),
+    name="password_reset"
+),
 
     path(
         "password-reset/done/",
